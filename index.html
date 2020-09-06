@@ -11,14 +11,14 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css" integrity="sha512-OD0ScwZAE5PCg4nATXnm8pdWi0Uk0Pp2XFsFz1xbZ7xcXvapzjvcxxHPeTZKfMjvlwwl4sGOvgJghWF2GRZZDw==" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://localhost:4423/style.css">
 </head>
 <body>
     
     <div class="container">
         <h1><img src="banner.png" alt=""></h1>
 
-    <form action="/update" method="post">
+    <form action="http://localhost:4423/update" method="post">
         <input type="text" placeholder="Client-ID" name="clientid" class="form-control">
         <br>
         <input type="text" placeholder="Large image key" name="largeimg" class="form-control">
@@ -33,12 +33,21 @@
         <br>
         <input type="text" placeholder="State" name="state" class="form-control">
         <br>
+        <center>
         <button class="ui green inverted right labeled icon button">
             <i class="paper plane icon"></i>
-            Start
-        </button>
+            Set
+        </button></center>
         <br><br>
     </form>
+    <button class="ui green inverted right labeled icon button" onclick="location.href = 'http://localhost:4423/start';">
+        <i class="paper plane icon"></i>
+        Start
+    </button>
+    <button class="ui red inverted right labeled icon button" onclick="location.href = 'http://localhost:4423/stop';">
+        <i class="paper plane icon"></i>
+        Stop
+    </button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

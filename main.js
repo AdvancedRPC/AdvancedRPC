@@ -1,5 +1,6 @@
 const electron = require('electron')
 const express = require("express")
+const bodyParser = require("body-parser")
 const websocket = express()
 const DiscordRPC = require("discord-rpc");
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
@@ -7,6 +8,8 @@ var onState = false;
 var offState = true;
 var win;
 var bground = false;
+
+websocket.use(bodyParser.urlencoded({ extended: true }));
 
 var presenceData = {
   clientId: "623182972895494164",
@@ -100,8 +103,11 @@ websocket.post("/update", async function (req, res) {
 
     rpc.login({ clientId }).catch(console.error);
 
+    onState=true;
+    offState=false;
 
-    res.redirect("file://index.html")
+
+    res.sendFile(__dirname + "/index.html")
 })
 
 async function stopPresence() {
@@ -136,5 +142,19 @@ async function startPresence() {
       console.log(e)
   }
 }
+
+websocket.get("/start", async function(req, res) {
+  startPresence()
+  res.sendFile(__dirname + "/index.html")
+})
+
+websocket.get("/stop", async function(req, res) {
+  stopPresence()
+  res.sendFile(__dirname + "/index.html")
+})
+
+websocket.get("/style.css", async function (req, res) {
+  res.sendFile(__dirname + "/style.css")
+})
 
 websocket.listen(4423, console.log("Running"))
