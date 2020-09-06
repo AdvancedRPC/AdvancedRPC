@@ -1,17 +1,48 @@
-<html>
-    <head>
-        <title>
-            AdvancedRPC
-        </title>
-        <style>
-            h1 {
-                color: #ffffff;
-            }
-        </style>
-    </head>
-    <body bgcolor="#2C2F33">
-        <center>
-            <h1>Hier entsteht die RPC App</h1>
-        </center>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvancedRPC</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css" integrity="sha512-8Tb+T7SKUFQWOPIQCaLDWWe1K/SY8hvHl7brOH8Nz5z1VT8fnf8B+9neoUzmFY3OzkWMMs3OjrwZALgB1oXFBg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css" integrity="sha512-OD0ScwZAE5PCg4nATXnm8pdWi0Uk0Pp2XFsFz1xbZ7xcXvapzjvcxxHPeTZKfMjvlwwl4sGOvgJghWF2GRZZDw==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1><img src="banner.png" alt=""></h1>
+
+    <form action="/update" method="post">
+        <input type="text" placeholder="Client-ID" name="clientid" class="form-control">
+        <br>
+        <input type="text" placeholder="Large image key" name="largeimg" class="form-control">
+        <br>
+        <input type="text" placeholder="Large image text" name="largetext" class="form-control">
+        <br>
+        <input type="text" placeholder="Small image key" name="smallimg" class="form-control">
+        <br>
+        <input type="text" placeholder="Small image text" name="smalltext" class="form-control">
+        <br>
+        <input type="text" placeholder="Details" name="details" class="form-control">
+        <br>
+        <input type="text" placeholder="State" name="state" class="form-control">
+        <br>
+        <button class="ui green inverted right labeled icon button">
+            <i class="paper plane icon"></i>
+            Start
+        </button>
+        <br><br>
+    </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
 </html>
