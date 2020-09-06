@@ -6,6 +6,7 @@ const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 var onState = false;
 var offState = true;
 var win;
+var bground = false;
 
 var presenceData = {
   clientId: "623182972895494164",
@@ -22,6 +23,7 @@ const { menubar } = require('menubar');
 const { app, BrowserWindow , Tray , Menu} = require('electron')
 
 function createWindow () {
+  if (win!=undefined) return win.show();
   // Create the browser window.
   win = new BrowserWindow({
     width: 800,
@@ -32,7 +34,10 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
+  if (bground==true) {
+    bground=false;
+    win.minimize(true);
+  }
   // and load the index.html of the app.
   win.loadFile('index.html')
 }
@@ -100,33 +105,18 @@ websocket.post("/update", async function (req, res) {
 })
 
 async function stopPresence() {
-
+  rpc.clearActivity()
 }
 
 async function startPresence() {
   if (!win) {
-    createWindow();
-    setTimeout(() => {
-      const { clientId, largeIMG, largeTEXT, smallIMG, smallTEXT, state, details } = presenceData;
-
-  rpc.setActivity({
-    details: details,
-    state: state,
-    largeImageKey: largeIMG,
-    largeImageText: largeTEXT,
-    smallImageKey: smallIMG,
-    smallImageText: smallTEXT,
-    instance: false,
-  });
-  try {
-    rpc.login({ clientId })
-  } catch(e) {
-      offState=true;
-      onState=false;
-      console.log(e)
+    await createWindow()
+    offState=true;
+    onState=false;
+    bground=true;
+    return
   }
-    }, 9000)
-  } else {
+
     const { clientId, largeIMG, largeTEXT, smallIMG, smallTEXT, state, details } = presenceData;
 
   rpc.setActivity({
@@ -145,7 +135,6 @@ async function startPresence() {
       onState=false;
       console.log(e)
   }
-}
 }
 
 websocket.listen(4423, console.log("Running"))
