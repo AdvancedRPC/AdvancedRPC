@@ -15,23 +15,32 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="container align-items-center">
         <h1><img src="banner.png" alt=""></h1>
 
     <form action="http://localhost:4423/update" method="post">
         <input type="text" placeholder="Client-ID" name="clientid" class="form-control">
         <br>
-        <input type="text" placeholder="Large image key" name="largeimg" class="form-control">
-        <br>
-        <input type="text" placeholder="Large image text" name="largetext" class="form-control">
-        <br>
-        <input type="text" placeholder="Small image key" name="smallimg" class="form-control">
-        <br>
-        <input type="text" placeholder="Small image text" name="smalltext" class="form-control">
+        <hr>
         <br>
         <input type="text" placeholder="Details" name="details" class="form-control">
         <br>
         <input type="text" placeholder="State" name="state" class="form-control">
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-6">
+                <input type="text" placeholder="Large image key" name="largeimg" class="form-control">
+                <br>
+                <input type="text" placeholder="Large image text" name="largetext" class="form-control">
+            </div>
+            <div class="col-6">
+                <input type="text" placeholder="Small image key" name="smallimg" class="form-control">
+                <br>
+                <input type="text" placeholder="Small image text" name="smalltext" class="form-control">
+            </div>
+        </div>
         <br>
         <center>
         <button class="ui green inverted right labeled icon button">
@@ -40,12 +49,12 @@
         </button></center>
         <br><br>
     </form>
-    <button class="ui green inverted right labeled icon button" onclick="location.href = 'http://localhost:4423/start';">
-        <i class="paper plane icon"></i>
+    <button class="ui green inverted right labeled icon button" onclick="location.href = 'http://localhost:4423/start' ">
+        <i class="plus icon"></i>
         Start
     </button>
     <button class="ui red inverted right labeled icon button" onclick="location.href = 'http://localhost:4423/stop';">
-        <i class="paper plane icon"></i>
+        <i class="minus icon"></i>
         Stop
     </button>
     </div>
