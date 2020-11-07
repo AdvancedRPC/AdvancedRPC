@@ -14,3 +14,7 @@ img {
     color: white;
     transition: all, 250ms;
 }
+
+hr  {
+    background-color: white;
+}
